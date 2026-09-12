@@ -95,7 +95,7 @@ For multi-issue messages, a single primary issue is selected.
                                |
                                v
                     AUTO-HANDLE / ESCALATE
-
+```
 ---
 
 ## 5. Baselines
