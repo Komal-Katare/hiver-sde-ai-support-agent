@@ -1,0 +1,17 @@
+HUMAN vs LLM JUDGE AGREEMENT
+======================================================================
+
+            criterion  n  spearman  spearman_p  exact_score_agreement  pass_fail_agreement  cohen_kappa
+         groundedness 30  0.315839    0.089084               0.233333             0.466667     0.111111
+            relevance 30  0.260353    0.164675               0.200000             0.333333     0.050633
+          helpfulness 30  0.374122    0.041678               0.200000             0.400000     0.105960
+                 tone 30  0.100647    0.596675               0.166667             0.300000     0.000000
+no_unsupported_claims 30 -0.046045    0.809081               0.133333             0.366667     0.059406
+
+OVERALL AGREEMENT
+----------------------------------------------------------------------
+Spearman correlation: 0.338
+Spearman p-value: 0.0681
+Exact agreement: 0.100
+Pass/fail agreement: 0.400
+Cohen's kappa: 0.106

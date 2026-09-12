@@ -1,0 +1,30 @@
+BASELINE EVALUATION
+======================================================================
+
+Golden examples: 200
+
+BASELINE 1: MAJORITY CLASS
+----------------------------------------------------------------------
+Majority intent : other
+Accuracy        : 0.3600
+Macro Precision : 0.0360
+Macro Recall    : 0.1000
+Macro F1        : 0.0529
+
+Classification Report:
+                        precision    recall  f1-score   support
+
+      account_security       0.00      0.00      0.00         7
+             app_issue       0.00      0.00      0.00        28
+         battery_power       0.00      0.00      0.00        17
+          connectivity       0.00      0.00      0.00         7
+          data_storage       0.00      0.00      0.00         6
+       device_hardware       0.00      0.00      0.00        26
+        ios_update_bug       0.00      0.00      0.00        30
+orders_repair_warranty       0.00      0.00      0.00         3
+                 other       0.36      1.00      0.53        72
+        settings_howto       0.00      0.00      0.00         4
+
+              accuracy                           0.36       200
+             macro avg       0.04      0.10      0.05       200
+          weighted avg       0.13      0.36      0.19       200

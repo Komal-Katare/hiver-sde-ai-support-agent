@@ -1,0 +1,42 @@
+# Python virtual environment
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Raw and generated datasets
+data/raw/
+data/processed/
+
+# Ignore CSVs by default
+*.csv
+
+# Evaluation evidence that belongs in the submission
+!evaluation/golden_set_labelled.csv
+!evaluation/human_review.csv
+!evaluation/llm_judge_results.csv
+!evaluation/reply_eval_outputs.csv
+!evaluation/reply_eval_set.csv
+!evaluation/judge_agreement_metrics.csv
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Generated model artifacts
+results/*.joblib
+results/*.pkl
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+data/*.zip

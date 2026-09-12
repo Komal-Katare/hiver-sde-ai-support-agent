@@ -1,0 +1,81 @@
+FINAL EVALUATION SUMMARY
+======================================================================
+
+CLASSIFIER
+----------------------------------------------------------------------
+Accuracy        : 0.7850
+Macro Precision : 0.8099
+Macro Recall    : 0.7224
+Macro F1        : 0.7116
+
+MAJORITY BASELINE
+----------------------------------------------------------------------
+BASELINE EVALUATION
+======================================================================
+
+Golden examples: 200
+
+BASELINE 1: MAJORITY CLASS
+----------------------------------------------------------------------
+Majority intent : other
+Accuracy        : 0.3600
+Macro Precision : 0.0360
+Macro Recall    : 0.1000
+Macro F1        : 0.0529
+
+Classification Report:
+                        precision    recall  f1-score   support
+
+      account_security       0.00      0.00      0.00         7
+             app_issue       0.00      0.00      0.00        28
+         battery_power       0.00      0.00      0.00        17
+          connectivity       0.00      0.00      0.00         7
+          data_storage       0.00      0.00      0.00         6
+       device_hardware       0.00      0.00      0.00        26
+        ios_update_bug       0.00      0.00      0.00        30
+orders_repair_warranty       0.00      0.00      0.00         3
+                 other       0.36      1.00      0.53        72
+        settings_howto       0.00      0.00      0.00         4
+
+              accuracy                           0.36       200
+             macro avg       0.04      0.10      0.05       200
+          weighted avg       0.13      0.36      0.19       200
+
+
+REPLY SYSTEM
+----------------------------------------------------------------------
+Reply cases     : 30
+Auto-handled    : 14
+Escalated       : 16
+Escalation rate : 0.5333
+Avg confidence  : 0.7338
+Avg similarity  : 0.4307
+
+LLM JUDGE
+----------------------------------------------------------------------
+Groundedness             : 2.70/5
+Relevance                : 2.67/5
+Helpfulness              : 2.70/5
+Tone                     : 2.80/5
+No unsupported claims    : 2.40/5
+Overall                  : 2.65/5
+
+JUDGE AGREEMENT
+----------------------------------------------------------------------
+HUMAN vs LLM JUDGE AGREEMENT
+======================================================================
+
+            criterion  n  spearman  spearman_p  exact_score_agreement  pass_fail_agreement  cohen_kappa
+         groundedness 30  0.315839    0.089084               0.233333             0.466667     0.111111
+            relevance 30  0.260353    0.164675               0.200000             0.333333     0.050633
+          helpfulness 30  0.374122    0.041678               0.200000             0.400000     0.105960
+                 tone 30  0.100647    0.596675               0.166667             0.300000     0.000000
+no_unsupported_claims 30 -0.046045    0.809081               0.133333             0.366667     0.059406
+
+OVERALL AGREEMENT
+----------------------------------------------------------------------
+Spearman correlation: 0.338
+Spearman p-value: 0.0681
+Exact agreement: 0.100
+Pass/fail agreement: 0.400
+Cohen's kappa: 0.106

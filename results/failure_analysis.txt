@@ -1,0 +1,224 @@
+FAILURE MODE ANALYSIS
+======================================================================
+
+Total cases: 30
+
+INTENT CLASSIFICATION FAILURES
+----------------------------------------------------------------------
+Failures: 9 / 30
+
+Case: 1853079.0
+Customer: apparently trying to update my phone broke it. thanks
+Gold intent: app_issue
+Predicted: ios_update_bug
+Confidence: 0.920
+
+Case: 1971055.0
+Customer: can’t get my Airplay of my iPhone/iPad to stream onto my Apple TV. Any suggestions?
+Gold intent: app_issue
+Predicted: other
+Confidence: 0.348
+
+Case: 1173949.0
+Customer: if I take my MacBook to an Apple Store can y'all instal a flat headphone jack on my lab top somewhere?
+Gold intent: app_issue
+Predicted: other
+Confidence: 0.505
+
+Case: 2867270.0
+Customer: It took me back to the home page. I just tried replicating the issue and this time had the ‘hide’ and red ‘hang up’ icon. So the issue appears to be intermittent
+Gold intent: app_issue
+Predicted: other
+Confidence: 0.320
+
+Case: 1513910.0
+Customer: Erm boys it won’t let me play it 😟😟😭😭 I brought it and this happened 😭😭 <URL>
+Gold intent: app_issue
+Predicted: other
+Confidence: 0.632
+
+Case: 1704008.0
+Customer: Photos in #macOS High Sierra is SO buggy — I can't imagine it was in a hand of a single QA. And I even waited till 10.13.1. you either charge for upgrades again or keep the half-done stuff for yourself. As a paying customer I say 👎
+Gold intent: data_storage
+Predicted: ios_update_bug
+Confidence: 0.456
+
+Case: 2144072.0
+Customer: when writing email, gmail account, in Mail app, on our iMac, sometimes progressive drafts show up on our iPad, but not iMac
+Gold intent: account_security
+Predicted: other
+Confidence: 0.385
+
+Case: 2519438.0
+Customer: Super annoyed that my iPhone can’t type the letter I️ in email, posts! Fix it! Grrr! #hateappleupdates #fixit #WTF
+Gold intent: app_issue
+Predicted: other
+Confidence: 0.843
+
+Case: 842450.0
+Customer: Hi , my 5s had 6 iOS updates over the last 7 days and last night all my apps - WhatsApp, etc - stopped working... what gives?
+Gold intent: app_issue
+Predicted: ios_update_bug
+Confidence: 0.676
+
+
+LOW RETRIEVAL SIMILARITY
+----------------------------------------------------------------------
+Cases with similarity < 0.35: 11
+
+Case: 739839.0
+Customer: The amount of times that my phone freezes now. I have to downgrade the update . Y’all staying quiet about people’s issues with this 😒
+Similarity: 0.313
+Decision: ESCALATE
+
+Case: 1971055.0
+Customer: can’t get my Airplay of my iPhone/iPad to stream onto my Apple TV. Any suggestions?
+Similarity: 0.335
+Decision: ESCALATE
+
+Case: 1700824.0
+Customer: Thankfully I’m good at adlibs and can figure this out, but we really need an update to fix this blasphemy, . <URL>
+Similarity: 0.338
+Decision: ESCALATE
+
+Case: 1173949.0
+Customer: if I take my MacBook to an Apple Store can y'all instal a flat headphone jack on my lab top somewhere?
+Similarity: 0.264
+Decision: ESCALATE
+
+Case: 2867270.0
+Customer: It took me back to the home page. I just tried replicating the issue and this time had the ‘hide’ and red ‘hang up’ icon. So the issue appears to be intermittent
+Similarity: 0.292
+Decision: ESCALATE
+
+Case: 842507.0
+Customer: using apps it’s slow to register what I’m doing and the touch screen doesn’t register where I am tapping on the screen or won’t skip song
+Similarity: 0.217
+Decision: ESCALATE
+
+Case: 1044440.0
+Customer: phone fell from 0.5 metres and front screen shattered - how is it the strongest ever ? Replace it free ?? Where in Gurgaon?
+Similarity: 0.229
+Decision: ESCALATE
+
+Case: 2144072.0
+Customer: when writing email, gmail account, in Mail app, on our iMac, sometimes progressive drafts show up on our iPad, but not iMac
+Similarity: 0.220
+Decision: ESCALATE
+
+Case: 2052193.0
+Customer: If put out a sh*t release like 11.3 there would’ve been hell to pay. Slow as f*ck #fixyourshit
+Similarity: 0.244
+Decision: ESCALATE
+
+Case: 842450.0
+Customer: Hi , my 5s had 6 iOS updates over the last 7 days and last night all my apps - WhatsApp, etc - stopped working... what gives?
+Similarity: 0.273
+Decision: ESCALATE
+
+Case: 1247843.0
+Customer: Anyone else finds #iphone8plus is heating a lot after 10mins phone conversations
+Similarity: 0.341
+Decision: ESCALATE
+
+
+ESCALATIONS
+----------------------------------------------------------------------
+Escalated: 16 / 30
+
+Case: 739839.0
+Intent: ios_update_bug -> ios_update_bug
+Confidence: 0.865
+Similarity: 0.313
+Reason: historical similarity 0.313 is below 0.35
+
+Case: 1971055.0
+Intent: app_issue -> other
+Confidence: 0.348
+Similarity: 0.335
+Reason: classifier confidence 0.348 is below 0.70; historical similarity 0.335 is below 0.35
+
+Case: 1700824.0
+Intent: ios_update_bug -> ios_update_bug
+Confidence: 0.681
+Similarity: 0.338
+Reason: classifier confidence 0.681 is below 0.70; historical similarity 0.338 is below 0.35
+
+Case: 2304954.0
+Intent: account_security -> account_security
+Confidence: 0.997
+Similarity: 0.566
+Reason: account_security is classified as a high-risk intent
+
+Case: 1173949.0
+Intent: app_issue -> other
+Confidence: 0.505
+Similarity: 0.264
+Reason: classifier confidence 0.505 is below 0.70; historical similarity 0.264 is below 0.35
+
+Case: 2867270.0
+Intent: app_issue -> other
+Confidence: 0.320
+Similarity: 0.292
+Reason: classifier confidence 0.320 is below 0.70; historical similarity 0.292 is below 0.35
+
+Case: 842507.0
+Intent: device_hardware -> device_hardware
+Confidence: 0.996
+Similarity: 0.217
+Reason: historical similarity 0.217 is below 0.35
+
+Case: 1513910.0
+Intent: app_issue -> other
+Confidence: 0.632
+Similarity: 0.425
+Reason: classifier confidence 0.632 is below 0.70
+
+Case: 1044440.0
+Intent: device_hardware -> device_hardware
+Confidence: 0.938
+Similarity: 0.229
+Reason: historical similarity 0.229 is below 0.35
+
+Case: 1704008.0
+Intent: data_storage -> ios_update_bug
+Confidence: 0.456
+Similarity: 0.351
+Reason: classifier confidence 0.456 is below 0.70
+
+Case: 2144072.0
+Intent: account_security -> other
+Confidence: 0.385
+Similarity: 0.220
+Reason: classifier confidence 0.385 is below 0.70; historical similarity 0.220 is below 0.35
+
+Case: 2052193.0
+Intent: other -> other
+Confidence: 0.632
+Similarity: 0.244
+Reason: classifier confidence 0.632 is below 0.70; historical similarity 0.244 is below 0.35
+
+Case: 1864086.0
+Intent: ios_update_bug -> ios_update_bug
+Confidence: 0.358
+Similarity: 0.368
+Reason: classifier confidence 0.358 is below 0.70
+
+Case: 842450.0
+Intent: app_issue -> ios_update_bug
+Confidence: 0.676
+Similarity: 0.273
+Reason: classifier confidence 0.676 is below 0.70; historical similarity 0.273 is below 0.35
+
+Case: 1247843.0
+Intent: other -> other
+Confidence: 0.573
+Similarity: 0.341
+Reason: classifier confidence 0.573 is below 0.70; historical similarity 0.341 is below 0.35
+
+Case: 2003232.0
+Intent: other -> other
+Confidence: 0.512
+Similarity: 0.433
+Reason: classifier confidence 0.512 is below 0.70
+
