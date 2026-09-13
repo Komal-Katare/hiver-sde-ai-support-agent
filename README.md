@@ -391,7 +391,7 @@ The response generator requires Ollama and the `llama3.2:3b` model.
 
 ### Data Preparation
 
-```text
+
 The repository includes the preprocessing and training scripts needed to reproduce the headline results without requiring the full 3M-row dataset run.
 ```
 
