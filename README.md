@@ -382,10 +382,10 @@ Python 3.11 was used.
 
 Install dependencies:
 
-```text
-```bash
+
 pip install -r requirements.txt
 ```
+``
 The response generator requires Ollama and the `llama3.2:3b` model. 
 ```
 
