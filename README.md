@@ -511,9 +511,10 @@ Generated model and retrieval artifacts are intentionally excluded from Git beca
 
 ---
 
+
 ## 13. Repository Structure
 
-
+```text
 hiver-sde-ai-support-agent/
 |
 |-- README.md
@@ -521,36 +522,45 @@ hiver-sde-ai-support-agent/
 |-- .gitignore
 |
 |-- src/
-| |-- inspect_dataset.py
-| |-- extract_brand_data.py
-| |-- build_conversations.py
-| |-- clean_conversations.py
-| |-- profile_support.py
-| |-- create_golden_set.py
-| |-- clean_golden_set.py
-| |-- validate_golden_set.py
-| |-- train_intent_classifier.py
-| |-- evaluate_intent.py
-| |-- build_retriever.py
-| |-- test_retriever.py
-| |-- support_agent.py
-| |-- escalation.py
-| |-- create_reply_eval.py
-| |-- run_reply_eval.py
-| |-- run_llm_judge.py
-| |-- calculate_judge_agreement.py
-| |-- analyze_failures.py
-| |-- create_final_summary.py
-| |-- run_baselines.py
-| -- inspect_reply_outputs.py | |-- evaluation/ | |-- golden_set_labelled.csv | |-- human_review.csv | |-- reply_eval_set.csv | |-- reply_eval_outputs.csv | |-- llm_judge_results.csv | |-- judge_agreement_metrics.csv | -- judge_agreement_results.txt
+|   |-- inspect_dataset.py
+|   |-- extract_brand_data.py
+|   |-- build_conversations.py
+|   |-- clean_conversations.py
+|   |-- profile_support.py
+|   |-- create_golden_set.py
+|   |-- clean_golden_set.py
+|   |-- validate_golden_set.py
+|   |-- train_intent_classifier.py
+|   |-- evaluate_intent.py
+|   |-- build_retriever.py
+|   |-- test_retriever.py
+|   |-- support_agent.py
+|   |-- escalation.py
+|   |-- create_reply_eval.py
+|   |-- run_reply_eval.py
+|   |-- run_llm_judge.py
+|   |-- calculate_judge_agreement.py
+|   |-- analyze_failures.py
+|   |-- create_final_summary.py
+|   |-- run_baselines.py
+|   `-- inspect_reply_outputs.py
+|
+|-- evaluation/
+|   |-- golden_set_labelled.csv
+|   |-- human_review.csv
+|   |-- reply_eval_set.csv
+|   |-- reply_eval_outputs.csv
+|   |-- llm_judge_results.csv
+|   |-- judge_agreement_metrics.csv
+|   `-- judge_agreement_results.txt
 |
 |-- results/
-| |-- baseline_results.txt
-| |-- failure_analysis.txt
-| -- final_evaluation_summary.txt | -- report/
-`-- decision_log.md
-
-
+|   |-- baseline_results.txt
+|   |-- failure_analysis.txt
+|   `-- final_evaluation_summary.txt
+|
+`-- report/
+    `-- decision_log.md
 ---
 
 ## 14. Decision Log
