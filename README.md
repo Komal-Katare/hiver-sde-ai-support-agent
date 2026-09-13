@@ -561,6 +561,8 @@ hiver-sde-ai-support-agent/
 |
 `-- report/
     `-- decision_log.md
+
+```    
 ---
 
 ## 14. Decision Log
