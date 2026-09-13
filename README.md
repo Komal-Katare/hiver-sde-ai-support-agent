@@ -95,7 +95,6 @@ For multi-issue messages, a single primary issue is selected.
                                |
                                v
                     AUTO-HANDLE / ESCALATE
-```
 ---
 
 ## 5. Baselines
@@ -385,5 +384,205 @@ Install dependencies:
 ```text
 pip install -r requirements.txt
 
+The response generator requires Ollama and the `llama3.2:3b` model. 
+```
 
+### Data Preparation
+
+The repository includes the preprocessing and training scripts needed to reproduce the headline results without requiring the full 3M-row dataset run.
+
+1. Download the Kaggle dataset:
+   `thoughtvector/customer-support-on-twitter`
+
+2. Place the extracted `twcs.csv` under:
+   `data/raw/twcs/twcs.csv`
+
+3. Run the preprocessing pipeline:
+
+```bash
+python src/data_prepare.py
+```
+
+
+4. Train the intent classifier:
+
+```bash
+python src/train_intent.py
+```
+
+5. Build the historical retrieval index:
+
+```bash
+python src/build_retrieval.py
+```
+
+6. Run the intent evaluation:
+
+```bash
+python src/evaluate_intent.py
+```
+
+7. Run the reply-generation and escalation evaluation:
+
+```bash
+python src/evaluate_replies.py
+```
+
+8. Run the LLM-as-judge evaluation:
+
+```bash
+python src/llm_judge.py
+```
+
+The generated evaluation outputs are stored under results/.
+
+### Golden Set
+
+The final manually labelled golden set is included at:
+evaluation/golden_set_labelled.csv
+
+
+Validate it with:
+
+```bash
+python src/validate_golden_set.py
+```
+
+The golden set is already manually labelled and should be treated as the reported evaluation set.
+
+The generation and cleaning scripts are included for reproducibility, but should not be run when reproducing the reported final metrics unless intentionally regenerating the golden set.
+
+### Train Classifier
+
+python src/train_intent_classifier.py
+python src/evaluate_intent.py
+
+
+### Build and Test Retrieval
+
+
+python src/build_retriever.py
+python src/test_retriever.py
+
+
+### Run the Support Agent
+
+After building the classifier and retrieval artifacts:
+
+
+python src/support_agent.py
+
+
+The support agent loads the trained classifier and retrieval artifacts and uses Ollama for local response generation.
+
+### Run Reply Evaluation
+
+Make sure Ollama is running and the model is available:
+
+
+ollama pull llama3.2:3b
+
+
+Then:
+
+
+python src/create_reply_eval.py
+python src/run_reply_eval.py
+python src/run_llm_judge.py
+python src/calculate_judge_agreement.py
+python src/analyze_failures.py
+python src/create_final_summary.py
+
+Generated model and retrieval artifacts are intentionally excluded from Git because they are large derived files. They can be rebuilt using the commands above.
+
+---
+
+## 13. Repository Structure
+
+
+hiver-sde-ai-support-agent/
+|
+|-- README.md
+|-- requirements.txt
+|-- .gitignore
+|
+|-- src/
+| |-- inspect_dataset.py
+| |-- extract_brand_data.py
+| |-- build_conversations.py
+| |-- clean_conversations.py
+| |-- profile_support.py
+| |-- create_golden_set.py
+| |-- clean_golden_set.py
+| |-- validate_golden_set.py
+| |-- train_intent_classifier.py
+| |-- evaluate_intent.py
+| |-- build_retriever.py
+| |-- test_retriever.py
+| |-- support_agent.py
+| |-- escalation.py
+| |-- create_reply_eval.py
+| |-- run_reply_eval.py
+| |-- run_llm_judge.py
+| |-- calculate_judge_agreement.py
+| |-- analyze_failures.py
+| |-- create_final_summary.py
+| |-- run_baselines.py
+| -- inspect_reply_outputs.py | |-- evaluation/ | |-- golden_set_labelled.csv | |-- human_review.csv | |-- reply_eval_set.csv | |-- reply_eval_outputs.csv | |-- llm_judge_results.csv | |-- judge_agreement_metrics.csv | -- judge_agreement_results.txt
+|
+|-- results/
+| |-- baseline_results.txt
+| |-- failure_analysis.txt
+| -- final_evaluation_summary.txt | -- report/
+`-- decision_log.md
+
+
+---
+
+## 14. Decision Log
+
+The major design decisions are recorded in:
+
+
+report/decision_log.md
+
+
+The decision log contains 15 decisions covering:
+
+1.  Brand selection 
+2.  Customer-agent pair reconstruction 
+3.  Intent taxonomy 
+4.  Primary-issue labelling 
+5.  TF-IDF + Logistic Regression 
+6.  Majority baseline 
+7.  Weak heuristic labels 
+8.  Golden-set exclusion from classifier training 
+9.  Golden-set exclusion from retrieval 
+10.  TF-IDF retrieval instead of a vector database 
+11.  Local Ollama model 
+12.  Historical grounding and unsupported-claim restrictions 
+13.  Escalation thresholds 
+14.  High-risk escalation intents 
+15.  Human validation of the LLM judge 
+
+---
+
+## 15. Limitations
+
+This is a take-home prototype rather than a production support system.
+
+Important limitations include:
+
+-  Small manually labelled evaluation set 
+-  Imbalanced intent distribution 
+-  Weakly labelled classifier training data 
+-  Random rather than temporal evaluation split 
+-  TF-IDF retrieval depends on lexical overlap 
+-  Small local LLM can generate unsupported statements 
+-  Escalation thresholds are heuristic 
+-  LLM-as-judge agreement with human review is limited 
+-  No live customer-support integration 
+-  No production monitoring or feedback loop 
+
+The system is therefore best viewed as an auditable prototype demonstrating the core support-agent workflow and an evaluation-first approach.
 
