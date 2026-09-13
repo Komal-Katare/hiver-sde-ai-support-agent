@@ -383,8 +383,9 @@ Python 3.11 was used.
 Install dependencies:
 
 ```text
+```bash
 pip install -r requirements.txt
-
+```
 The response generator requires Ollama and the `llama3.2:3b` model. 
 ```
 
@@ -440,8 +441,9 @@ The generated evaluation outputs are stored under results/.
 ### Golden Set
 
 The final manually labelled golden set is included at:
+```bash
 evaluation/golden_set_labelled.csv
-
+```
 
 Validate it with:
 
@@ -454,25 +456,27 @@ The golden set is already manually labelled and should be treated as the reporte
 The generation and cleaning scripts are included for reproducibility, but should not be run when reproducing the reported final metrics unless intentionally regenerating the golden set.
 
 ### Train Classifier
-
+```bash
 python src/train_intent_classifier.py
-python src/evaluate_intent.py
 
+python src/evaluate_intent.py
+```
 
 ### Build and Test Retrieval
 
-
+```bash
 python src/build_retriever.py
-python src/test_retriever.py
 
+python src/test_retriever.py
+```
 
 ### Run the Support Agent
 
 After building the classifier and retrieval artifacts:
 
-
+```bash
 python src/support_agent.py
-
+```
 
 The support agent loads the trained classifier and retrieval artifacts and uses Ollama for local response generation.
 
@@ -486,13 +490,19 @@ ollama pull llama3.2:3b
 
 Then:
 
-
+```bash
 python src/create_reply_eval.py
+
 python src/run_reply_eval.py
+
 python src/run_llm_judge.py
+
 python src/calculate_judge_agreement.py
+
 python src/analyze_failures.py
+
 python src/create_final_summary.py
+```
 
 Generated model and retrieval artifacts are intentionally excluded from Git because they are large derived files. They can be rebuilt using the commands above.
 
@@ -544,9 +554,9 @@ hiver-sde-ai-support-agent/
 
 The major design decisions are recorded in:
 
-
+```bash
 report/decision_log.md
-
+```
 
 The decision log contains 15 decisions covering:
 
